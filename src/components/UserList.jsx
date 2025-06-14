@@ -7,7 +7,7 @@ const UserList = ({ users, fetchUsers, setEditingUser }) => {
         await axios.delete(`http://localhost:5000/api/users/${id}`);
         fetchUsers();
     }catch(err){
-        alert('Error in deleting data');
+        alert('Error in deleting d');
         console.log("Error in deleting data: ", err);
     }
   };
@@ -25,7 +25,7 @@ const UserList = ({ users, fetchUsers, setEditingUser }) => {
             <tr key={u._id}>
               <td>{u.name}</td>
               <td>{u.email}</td>
-              <td><img src={`http://localhost:5000/uploads/${u.file}`} alt="" width="50" /></td>
+              <td><img className='cursor-pointer' src={`http://localhost:5000/uploads/${u.file}`} alt="" width="50" /></td>
               <td>
                 <button className="btn btn-sm btn-info me-2" onClick={() => setEditingUser(u)}>Edit</button>
                 <button className="btn btn-sm btn-danger" onClick={() => deleteUser(u._id)}>Delete</button>
